@@ -1,6 +1,6 @@
 # JS-related-memo
-Redord the problem I met and the solution
-
+### Redord the problem I met and the solution
+-------------
 Probelm:
 Cannot use export/import with Node.js
 
@@ -18,3 +18,19 @@ main.js (compile this with babel-node): the js file contains the import function
 References:
 https://medium.com/@JedaiSaboteur/import-export-babel-and-node-a2e332d15673 <br>
 https://medium.com/10coding/node-js-%E4%BD%BF%E7%94%A8-babel-%E5%81%9A-es6-%E9%96%8B%E7%99%BC-44b5b9e5f508 <br>
+
+-------------
+Problem:
+Change the reading behavior inside module/class
+for instance:
+original: greet(){} <--> console.log(xxx.greet())
+changed: get greet(){} <--> console.log(xxx.greet)
+ 
+tsc cannot compile. 
+error TS1056: Accessors are only available when targeting ECMAScript 5 and higher.
+
+Solution:
+tsc --target es5 script.ts
+
+References:
+https://stackoverflow.com/questions/41010780/accessors-are-only-available-when-targeting-ecmascript-5-and-higher
